@@ -15,6 +15,7 @@ from . import secrets
 import socket
 from django.urls import path, include, reverse_lazy, reverse
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +29,8 @@ SECRET_KEY = 'l0v!=yfx=@*6qr^%durphy#+a+_c6dltseit9hm!%lg&bfn+2^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tiarnanwebmapping.com']
+ALLOWED_HOSTS = ['tiarnanwebmapping.com',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -43,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'world',
     'leaflet',
-    'pwa',
+    'djgeojson'
 ]
 
 MIDDLEWARE = [
@@ -131,15 +133,15 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LEAFLET_CONFIG = {
-    'TILES': [('OSM','https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{"useCache": True, "crossOrigin": True})],
-    'PLUGINS': {
-        'PouchDBCached': {
-            'js': 'https://unpkg.com/leaflet.tilelayer.pouchdbcached@latest/L.TileLayer.PouchDBCached.js',
-            'auto-include': True,
-        },
-    }
-}
+# LEAFLET_CONFIG = {
+#     'TILES': [('OSM','https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{"useCache": True, "crossOrigin": True})],
+#     'PLUGINS': {
+#         'PouchDBCached': {
+#             'js': 'https://unpkg.com/leaflet.tilelayer.pouchdbcached@latest/L.TileLayer.PouchDBCached.js',
+#             'auto-include': True,
+#         },
+#     }
+# }
 
 #PWA App Settings
 PWA_APP_NAME = 'Leaflet Sandbox'

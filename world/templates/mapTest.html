@@ -1,241 +1,99 @@
 <!DOCTYPE html>
-<html>
-{% load pwa %}
+<html lang="en">
+
 <head>
-    {% progressive_web_app_meta %}
-    <meta charset='utf-8'/>
+
+
     <title>Circuit Finder</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet'/>
 
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#333" />
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('../serviceworker.js').then(() => {
-                    console.log('Service Worker Registered')
-                })
-            })
-        }
-    </script>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-        }
-    </style>
+    <meta content='initial-scale=1,maximum-scale=1,user-scalable=no' name='viewport'/>
+    <link crossorigin="" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          rel="stylesheet"/>
+    <link href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/sidebar.js"></script>
 
 
-</head>
+    <link href="style/leaflet-routing-machine.css" rel="stylesheet"/>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
 <body>
 
-<div id='map'></div>
+<div id="mySidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+</div>
 
-<script>
-    //adding the mapbox api
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGVhcm5hd24iLCJhIjoiY2sybHhjam55MGF3bTNtbG5xamMybXpqcSJ9.yTHJ13Xc3WGcbj4zGM6VyQ';
+<div id="mapid">
+</div>
 
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-7.181159, 54.337570],
-        zoom: 8
-    });
-
-
-    map.on('load', function () {
-        // Add a layer showing the places.
-        map.addLayer({
-            "id": "areas",
-            "type": "symbol",
-            "source": {
-                "type": "geojson",
-                "data": {
-                    "type": "FeatureCollection",
-                    "features": [{
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 1, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.366132499999993, 55.03606399911458]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 2, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.403868499999987, 54.9773599991139]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 3, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.403164500000003, 54.95961749911371]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 4, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.478284000000003, 54.83059699911226]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 5, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.544506000000012, 54.79232799911183]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 6, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.6084835000000055, 54.74271799911128]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 7, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.828498999999993, 54.54898449910916]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 8, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.869352499999989, 54.533897499109]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 9, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-8.093378, 54.478839999108395]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 10, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-8.097008499999987, 54.477119499108376]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 11, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-8.09454550000001, 54.4767304991084]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 12, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-8.095764000000003, 54.40524299910764]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 13, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.976008500000006, 54.402774999107585]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 14, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.1072269999999955, 54.36851949910723]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 15, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.873554000000014, 54.337669499106916]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 16, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.873334000000001, 54.29373949910643]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 17, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.864596500000005, 54.27499749910626]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 18, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.818514499999992, 54.238662499105885]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 19, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.146852999999993, 54.23200999910579]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 20, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.703086500000013, 54.20771799910553]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 21, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.2432125, 54.205920999105516]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 22, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.2467604999999935, 54.20021449910545]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 23, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.731109500000002, 54.18583699910531]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 24, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.255181999999992, 54.17732999910524]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 25, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.2398795, 54.173324499105185]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 26, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.6316559999999924, 54.16358849910508]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 27, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.2842985000000064, 54.15388549910499]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 28, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.327716500000009, 54.13782099910482]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 29, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.478100500000011, 54.123214499104655]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 30, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.344575499999991, 54.12044899910464]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 31, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.35452749999999, 54.113372999104556]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 32, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.291635000000013, 54.11112199910453]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 33, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.378019999999992, 54.068820499104085]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 34, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.663202000000013, 54.0688169991041]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 35, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.48335449999999, 54.06639849910406]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 36, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-7.286684000000008, 55.04910449911471]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 37, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.645479999999991, 54.058349499103976]}
-                    }, {
-                        "type": "Feature",
-                        "properties": {"OBJECTID": 38, "FCsubtype": 1, "icon": "marker"},
-                        "geometry": {"type": "Point", "coordinates": [-6.593860500000004, 54.04450599910386]}
-                    }]
-                }
-            },
-            "layout": {
-                "icon-image": "{icon}-15",//custom maki icons
-                "icon-allow-overlap": true
-            }
-        });
-
-
-        // When clicking on an icon it opens a popup showing the co-ordinates of the point on the map
-        map.on('click', 'areas', function (e) {
-            var coordinates = e.features[0].geometry.coordinates.slice();
-
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(coordinates)
-                .addTo(map);
-        });
-    });
+<script crossorigin=""
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"> //Leaflet's JS Scripts
 </script>
+
+<script src="js/leaflet-routing-machine.js">//routing script file</script>
+<script>
+    //initialising the map
+    var mymap = L.map('mapid').setView([50.00, -14.00], 10);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/tearnawn/ck3w0mfll2gpy1cllwbt1ak92/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        accessToken: 'pk.eyJ1IjoidGVhcm5hd24iLCJhIjoiY2sybHhjam55MGF3bTNtbG5xamMybXpqcSJ9.yTHJ13Xc3WGcbj4zGM6VyQ'
+    }).addTo(mymap);
+
+    $.getJSON("features.geojson", function (data) {
+        // loading in the file and adding it to the map
+        var datalayer = L.geoJson(data, {
+            onEachFeature: function (feature, featureLayer) {
+                featureLayer.bindPopup("<dl></dt>" + "<dd>" + feature.properties.Name + "</dd>"
+                    + "<dd>" + feature.properties.description + "</dd>");
+            }
+        }).addTo(mymap);
+        mymap.fitBounds(datalayer.getBounds());
+    });
+
+
+    if (navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition(function (pos) {
+            var lat = pos.coords.latitude;
+            var lon = pos.coords.longitude;
+            var circle = L.circle([lat, lon], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.3,
+                radius: 30
+            }).addTo(mymap);
+            console.log(pos);
+
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(pos.coords.latitude, pos.coords.longitude),
+                    L.latLng(pos.coords.latitude, pos.coords.longitude)
+                ],
+                routeWhileDragging: true
+             }).addTo(mymap);
+
+        });
+    }
+
+
+</script>
+
 
 </body>
 </html>
