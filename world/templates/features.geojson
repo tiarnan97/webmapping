@@ -1,0 +1,320 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Australian GP - Melbourne GP Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          144.96997,
+          -37.849704
+        ],
+        "type": "Point"
+      },
+      "id": "0e0224acc711390b3a68d2f738fdb355"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Mexican GP - Autódromo Hermanos Rodriguez",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          -99.093905,
+          19.405545
+        ],
+        "type": "Point"
+      },
+      "id": "105095a18974129c31ecedf207c9ef9c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Brazilian GP - Autódromo José Carlos Pace",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.698908,
+          -23.704426
+        ],
+        "type": "Point"
+      },
+      "id": "1b7c2047b4846719025924606450bc9b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Azerbaijan GP - Baku City Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          49.85292,
+          40.372961
+        ],
+        "type": "Point"
+      },
+      "id": "3e616dbdb24ac83e111021634d5b2a3e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 US GP - Circuit of the Americas",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          -97.640014,
+          30.133244
+        ],
+        "type": "Point"
+      },
+      "id": "48eb9b49c08e4a1d389a88d18921b9a9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 German GP - Hockenheimring",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          8.566869,
+          49.32914
+        ],
+        "type": "Point"
+      },
+      "id": "4e563128de01f7625e7a6e2ce50599dc"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Austrian GP - Red Bull Ring",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          14.765598,
+          47.220725
+        ],
+        "type": "Point"
+      },
+      "id": "51b37466618b8224b3d74c4554fef989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Singapore GP - Marina Bay Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          103.863931,
+          1.291702
+        ],
+        "type": "Point"
+      },
+      "id": "5ba69d59bfb60a79875bf5f695b552d6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Belgian GP - Circuit de Spa-Francorchamps",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          5.965805,
+          50.444537
+        ],
+        "type": "Point"
+      },
+      "id": "6dddf4eebe6398ffd74362f3e2daecff"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Abu Dhabi GP - Yas Marina",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          54.605947,
+          24.471011
+        ],
+        "type": "Point"
+      },
+      "id": "6f6e72a07059d650ef413a5135f479b4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Hungarian GP - Hungaroring",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          19.248722,
+          47.579771
+        ],
+        "type": "Point"
+      },
+      "id": "7e3f93d251ae6e690bb9f30e1cb8b810"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Spanish GP - Circuit de Catalunya",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          2.26218,
+          41.570008
+        ],
+        "type": "Point"
+      },
+      "id": "9c768cd89c197bc45a8ddec14c0827a1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 British GP - Silverstone Circuit\n",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.021164,
+          52.069238
+        ],
+        "type": "Point"
+      },
+      "id": "9fc62f9612278d50a8b6d96195d96853"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Chinese GP - Shanghai Int. Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          121.220608,
+          31.337959
+        ],
+        "type": "Point"
+      },
+      "id": "ae2a328230e4928ff26997854b49935a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Russian GP - Sochi Autodrom",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          39.968905,
+          43.40974
+        ],
+        "type": "Point"
+      },
+      "id": "b0ffde1a4aec422f50612a6de2a157fe"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Monaco GP - Circuit de Monaco",
+        "description": "Click here for more "
+      },
+      "geometry": {
+        "coordinates": [
+          7.421494,
+          43.735343
+        ],
+        "type": "Point"
+      },
+      "id": "ba3633541b01fecb53fa8a8184616278"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Bahrain GP - Bahrain Int. Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          50.511451,
+          26.032284
+        ],
+        "type": "Point"
+      },
+      "id": "c5827759c8d6aae551f5b1c4959fd69c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 French GP - Circuitul Paul Ricard",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          5.794665,
+          43.251366
+        ],
+        "type": "Point"
+      },
+      "id": "d27a9dad5eb41caaaa80b4d7c69b79d5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Italian GP - Autodromo di Monza",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          9.282589,
+          45.618557
+        ],
+        "type": "Point"
+      },
+      "id": "eb6938980e48300dd5417a69e0487a17"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Japanese GP - Suzuka Circuit",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          136.539713,
+          34.843207
+        ],
+        "type": "Point"
+      },
+      "id": "f17edda5273f131026188c7dd800f0e7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "F1 Canadian GP - Circuit Gilles Villeneuve",
+        "description": "Click here for more"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.523791,
+          45.501745
+        ],
+        "type": "Point"
+      },
+      "id": "fbdeacadd74ce097bb2036308b25be36"
+    }
+  ],
+  "type": "FeatureCollection"
+}
