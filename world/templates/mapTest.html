@@ -3,6 +3,9 @@
 
 <head>
 
+    {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
 
     <title>Circuit Finder</title>
 
@@ -10,12 +13,12 @@
     <link crossorigin="" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           rel="stylesheet"/>
-    <link href="style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/sidebar.js"></script>
+    <script src="{% static 'scripts/sidebar.js' %}"></script>
 
-
-    <link href="style/leaflet-routing-machine.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/leaflet-routing-machine.css' %}">
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -44,7 +47,7 @@
         src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"> //Leaflet's JS Scripts
 </script>
 
-<script src="js/leaflet-routing-machine.js">//routing script file</script>
+<script src="{% static 'scripts/leaflet-routing-machine.js' %}">//routing script file</script>
 <script>
     //initialising the map
     var mymap = L.map('mapid').setView([50.00, -14.00], 10);
@@ -56,7 +59,7 @@
         accessToken: 'pk.eyJ1IjoidGVhcm5hd24iLCJhIjoiY2sybHhjam55MGF3bTNtbG5xamMybXpqcSJ9.yTHJ13Xc3WGcbj4zGM6VyQ'
     }).addTo(mymap);
 
-    $.getJSON("features.geojson", function (data) {
+    $.getJSON("{% static 'features.geojson' %}", function (data) {
         // loading in the file and adding it to the map
         var datalayer = L.geoJson(data, {
             onEachFeature: function (feature, featureLayer) {
