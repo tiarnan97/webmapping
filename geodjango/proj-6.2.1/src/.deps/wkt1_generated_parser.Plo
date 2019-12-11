@@ -1,0 +1,8 @@
+wkt1_generated_parser.lo: wkt1_generated_parser.c \
+ /usr/include/stdc-predef.h wkt1_parser.h wkt1_generated_parser.h
+
+/usr/include/stdc-predef.h:
+
+wkt1_parser.h:
+
+wkt1_generated_parser.h:
